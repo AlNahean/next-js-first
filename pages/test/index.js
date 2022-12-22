@@ -1,6 +1,10 @@
 import React, { useLayoutEffect, useState } from "react";
 
+import { useSession, signIn, signOut } from "next-auth/react";
+
 const index = ({ data }) => {
+  const { data: session, status } = useSession();
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -13,10 +17,32 @@ const index = ({ data }) => {
 
   //   };
   // }, [])
+  console.log(session, "session", status);
+  if (!session) {
+    return <div>Not Authenticated</div>;
+  }
 
   return (
-    <div className="test-page bg-dark text-white">
+    <div className="test-page bg-dark text-white ">
       <div className="">Header</div>
+      <div
+        className=" btn btn-primary"
+        onClick={() => {
+          signOut();
+        }}
+      >
+        Sign out
+      </div>
+
+      <div className=" container ">
+        <div className=" card text-dark">
+          <div className=" card-body">
+            <img src={session.user.image} alt="" />
+            <h1>{session.user.name}</h1>
+            <h1>{session.user.email}</h1>
+          </div>
+        </div>
+      </div>
       <div className=" container">
         {data.map((item) => {
           return <div key={item}>{item}</div>;

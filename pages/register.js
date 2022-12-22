@@ -1,13 +1,15 @@
-import React from 'react'
-import Register from '../ComponentsPage/Register/Register'
-
+import React from "react";
+import Register from "../ComponentsPage/Register/Register";
+import { RegisterProvider } from "../ComponentsPage/Register/Context";
 
 const register = () => {
   return (
     <>
-        <Register/>
+      <RegisterProvider testProp="testProp">
+        <Register />
+      </RegisterProvider>
     </>
-  )
-}
+  );
+};
 
-export default register
+export default register;

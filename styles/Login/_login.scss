@@ -1,0 +1,39 @@
+.login-page {
+  background-color: var(--my-bg-color);
+  color: var(--my-color);
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  .form-wrapper {
+    background-color: var(--my-bg-color-sc);
+    padding: 1rem;
+    border-radius: 1rem;
+    max-width: 700px;
+
+    input:-webkit-autofill {
+      -webkit-text-fill-color: var(--my-color) !important;
+      -webkit-background-clip: text;
+    }
+
+    input {
+      background-color: var(--my-bg-color-sc);
+      color: var(--my-color);
+      border: 1px solid var(--card-border-transparent-color);
+
+      &::-webkit-autofill {
+        background-color: var(--my-bg-color);
+        border: 1px solid green;
+        -webkit-text-fill-color: green;
+        -webkit-box-shadow: 0 0 0px 1000px #000 inset;
+        transition: background-color 5000s ease-in-out 0s;
+      }
+
+      &:focus {
+        box-shadow: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+@import "./rootVariables";
+
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+
+@import "./Register/_register.scss";
+
+@import "./commonCustom";
+@import "./Login/login";
