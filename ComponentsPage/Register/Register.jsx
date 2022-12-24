@@ -31,7 +31,13 @@ const FormStracture = [
 ];
 
 const Register = () => {
-  const { registerData, setRegisterData, resetFormData } = useRegisterContext();
+  const {
+    registerData,
+    setRegisterData,
+    resetFormData,
+    imgLoading,
+    setImgLoading,
+  } = useRegisterContext();
 
   const handleInputChange = (e, keyword) => {
     // console.log(e, keyword);
@@ -160,6 +166,7 @@ const Register = () => {
                   className=" btn btn-danger me-3"
                   onClick={() => {
                     resetFormData();
+                    setImgLoading(true);
                   }}
                 >
                   Reset

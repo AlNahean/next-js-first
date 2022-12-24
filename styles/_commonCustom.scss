@@ -32,6 +32,10 @@
 .cursor-pointer {
   cursor: pointer;
 }
+.link-undecorated {
+  color: var(--my-color);
+  text-decoration: none;
+}
 .my-color {
   color: var(--my-color) !important;
 }

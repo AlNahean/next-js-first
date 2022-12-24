@@ -3,7 +3,9 @@ import { AvatarGenerator } from "random-avatar-generator";
 
 export const AppContext = React.createContext();
 
-export const RegisterProvider = ({ children, testProp }) => {
+export const RegisterProvider = ({ children, testProp, generatedAvatar }) => {
+  const [imgLoading, setImgLoading] = useState(true);
+
   const generator = new AvatarGenerator();
   const generateAvatar = () => {
     // Simply get a random avatar
@@ -13,13 +15,14 @@ export const RegisterProvider = ({ children, testProp }) => {
   };
   const [test, setTest] = useState("Test");
   const [registerData, setRegisterData] = useState({
-    img: generator.generateRandomAvatar(),
+    img: generatedAvatar,
     name: "",
     email: "",
     password: "",
     re_password: "",
   });
   const resetFormData = () => {
+    console.log("reset-data");
     setRegisterData({
       img: generator.generateRandomAvatar(),
       name: "",
@@ -37,6 +40,8 @@ export const RegisterProvider = ({ children, testProp }) => {
         setRegisterData,
         generateAvatar,
         resetFormData,
+        imgLoading,
+        setImgLoading,
       }}
     >
       {children}

@@ -4,14 +4,22 @@ import { useRegisterContext } from "./Context";
 
 const AvatarWrapper = () => {
   const imgRef = useRef(null);
-  const [imgLoading, setImgLoading] = useState(true);
   const generator = new AvatarGenerator();
-  const { registerData, setRegisterData, generateAvatar } =
-    useRegisterContext();
+  const {
+    registerData,
+    setRegisterData,
+    generateAvatar,
+    imgLoading,
+    setImgLoading,
+  } = useRegisterContext();
   useLayoutEffect(() => {
     // imgRef.current?.onLoad(() => {
     //   console.log("load");
     // });
+
+    setTimeout(() => {
+      setImgLoading(false);
+    }, 3000);
     return () => {};
   }, []);
 
